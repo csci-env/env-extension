@@ -128,3 +128,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+__pycache__/
+*.swp
+csci_env/_version.py
+csci_env/labextension/
+lib/
+

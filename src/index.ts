@@ -17,8 +17,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
       app: JupyterFrontEnd,
       shell: ILabShell,
   ) => {
-    console.log('JupyterLab extension csci_env is activated!');
-
+    console.log('JupyterLab extension env-extension is activated: 1:57am');
 
     requestAPI<any>('get_env')
         .then(data => {
@@ -28,13 +27,14 @@ const plugin: JupyterFrontEndPlugin<void> = {
             for(let w = widgets.next(); w != null; w = widgets.next()) {
                 if(w.id == 'jp-MainLogo') {
                     const element = w.node;
-                    element.textContent = course.toUpperCase() + ": " + user;
-                    element.style.width = "fit-content";
-                    element.style.padding = "5px";
-                    element.style.fontWeight = "bold";
-                    element.style.position = "absolute";
-                    element.style.top = "0px";
-                    element.style.right = "0px";
+		    const node = document.createElement("div");
+		    node.textContent = `${user}@${course}`;
+		    node.style.padding = '5px';
+		    node.style.fontWeight = 'bold';
+		    node.style.position = 'absolute';
+		    node.style.top = '0px';
+		    node.style.right = '0px';;
+		    element.parentNode?.appendChild(node);
                 }
             }
       })
