@@ -101,7 +101,6 @@ const plugin: JupyterFrontEndPlugin<void> = {
         // Initial UI cleanup
         cleanUI();
         
-        // Setup mutation observer for dynamic content
         new MutationObserver(cleanUI).observe(document.body, {
           childList: true,
           subtree: true
