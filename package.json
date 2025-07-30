@@ -56,7 +56,6 @@
     "@jupyterlab/application": "^3.1.0",
     "@jupyterlab/coreutils": "^5.1.0",
     "@jupyterlab/services": "^6.1.0"
-
   },
   "devDependencies": {
     "@jupyterlab/builder": "^3.1.0",
@@ -84,18 +83,24 @@
   "publishConfig": {
     "access": "public"
   },
-  "jupyterlab": { 
+  "jupyterlab": {
+    // preserve front‑end discovery
     "discovery": {
-        "server": {
-          "managers": [
-            "pip"
-          ],
-          "base": {
-            "name": "csci_env"
-          }
+      "server": {
+        "managers": [
+          "pip"
+        ],
+        "base": {
+          "name": "csci_env"
         }
+      }
+    },
+    // this makes it a SERVER extension:
+    "server": {
+      "module": "env_extension"
     },
     "extension": true,
-    "outputDir": "csci_env/labextension"
+    // where your server build lands:
+    "outputDir": "lib"
   }
 }
