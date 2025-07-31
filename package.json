@@ -84,20 +84,6 @@
     "access": "public"
   },
   "jupyterlab": {
-    "discovery": {
-      "server": {
-        "managers": [
-          "pip"
-        ],
-        "base": {
-          "name": "csci_env"
-        }
-      }
-    },
-    "server": {
-      "module": "env_extension"
-    },
-    "extension": true,
-    "outputDir": "lib"
+    "extension": true
   }
 }
