@@ -84,7 +84,6 @@
     "access": "public"
   },
   "jupyterlab": {
-    // preserve front‑end discovery
     "discovery": {
       "server": {
         "managers": [
@@ -95,12 +94,10 @@
         }
       }
     },
-    // this makes it a SERVER extension:
     "server": {
       "module": "env_extension"
     },
     "extension": true,
-    // where your server build lands:
     "outputDir": "lib"
   }
 }
