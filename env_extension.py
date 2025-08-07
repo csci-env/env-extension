@@ -17,5 +17,5 @@ class EnvHandler(APIHandler):
 def setup_handlers(web_app):
     host_pattern = '.*$'
     base_url = web_app.settings['base_url']
-    route_pattern = url_path_join(base_url, 'get_env')
+    route_pattern = url_path_join(base_url, 'csci-env', 'get_env')
     web_app.add_handlers(host_pattern, [(route_pattern, EnvHandler)])
