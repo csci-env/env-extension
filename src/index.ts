@@ -20,29 +20,31 @@ const plugin: JupyterFrontEndPlugin<void> = {
 
     // Force the Launcher settings using the Settings Registry
     try {
-      await settings.set('@jupyterlab/launcher-extension:launcher', 'disabledCategories', ['Console']);
+      await settings.set('@jupyterlab/launcher-extension:launcher', 'disabledCategories', [
+        'Console'
+      ]);
       await settings.set('@jupyterlab/launcher-extension:launcher', 'hiddenOptions', [
         'fileeditor:create-new',
         'fileeditor:create-new-markdown',
         'fileeditor:create-new-python',
         'help:open'
       ]);
-      await settings.set('@jupyterlab/launcher-extension:launcher', 'items', [
-        {
+      await settings.set('@jupyterlab/launcher-extension:launcher', 'items', {
+        'cpp-file': {
           command: 'fileeditor:create-new',
           args: { ext: '.cpp' },
           category: 'Other',
           rank: 20,
           name: 'C++ File'
         },
-        {
+        'cpp-notebook': {
           command: 'notebook:create-new',
-          args: { kernelName: 'xcpp11' },
+          args: { kernel: 'xcpp11' },
           category: 'Notebook',
           rank: 10,
           name: 'C++11 Notebook'
         }
-      ]);
+      });
       console.log('Launcher settings forced via SettingsRegistry');
     } catch (err) {
       console.warn('Could not set Launcher settings:', err);
